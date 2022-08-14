@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5650465316820205338}
   - component: {fileID: 5650465316820205336}
   - component: {fileID: 5650465316820205312}
+  - component: {fileID: 3600956269090958055}
   m_Layer: 0
   m_Name: grain (1)
   m_TagString: Grain
@@ -161,7 +162,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3600956269090958055}
+        m_TargetAssemblyTypeName: ConfiGrain, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -195,7 +208,6 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  grain: 1
   m_AttachTransform: {fileID: 5650465316625396632}
   m_AttachEaseInTime: 0.15
   m_MovementType: 1
@@ -246,6 +258,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   point: -1
+--- !u!114 &3600956269090958055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803957157612743434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c937f213dc39b44d839467c0feb4090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 5650465316820205339}
 --- !u!1 &5650465316625396633
 GameObject:
   m_ObjectHideFlags: 0
