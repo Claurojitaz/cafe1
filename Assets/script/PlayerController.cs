@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BowlCrontroller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public GameObject pointBowl;
     /// OnTriggerEnter is called when the Collider other enters the trigger.
@@ -11,7 +11,7 @@ public class BowlCrontroller : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bowl"))
         {
-            other.gameObject.transform.SetParent(pointBowl.transform);
+            other.gameObject.transform.SetParent(pointBowl.transform);            
         }
     }
 }
