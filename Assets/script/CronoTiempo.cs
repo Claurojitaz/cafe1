@@ -13,16 +13,27 @@ public class CronoTiempo : MonoBehaviour
     public GameObject mensaje_final;
     public GameObject puntos1;
     public GameObject boton;
+    public GameObject rayHandsLF;
+    public GameObject rayHandsRG;
+
+    public bool initial;
+
 
     void Start()
     {
-        
+        int minutos = (int)tiempo / 60;
+        int segundos = (int)tiempo % 60;
+        tiempotxt.text = minutos.ToString() + ":" + segundos.ToString().PadLeft(2, '0');
     }
 
     // Update is called once per frame
     void Update()
     {
-        CalcularTiempo();
+        if (initial)
+        {
+            CalcularTiempo();
+        }
+
         if (tiempo <= 0)
         {
             tiempotxt.text = 0 + ":" + 0;

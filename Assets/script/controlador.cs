@@ -5,16 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class controlador : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private void OnTriggerStay(Collider other)
+    public int a;
+ 
+    public void Reload()
     {
-        if(other.CompareTag("Player"))
-        {
             Debug.Log("colisionando");
-            SceneManager.LoadScene("SampleScene");
-        }
-
+            //SceneManager.LoadScene("SampleScene");
     }
-    
-
 }
