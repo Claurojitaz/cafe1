@@ -7,17 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class CronoTiempo : MonoBehaviour
 {
-    public float tiempoBtn=1000;
+    public float tiempoBtn;
     public float tiempo;
     public TMP_Text tiempotxt;
     public GameObject mensaje_final;
     public GameObject puntos1;
     public GameObject boton;
-    public GameObject rayHandsLF;
-    public GameObject rayHandsRG;
-
     public bool initial;
-
 
     void Start()
     {
@@ -33,7 +29,7 @@ public class CronoTiempo : MonoBehaviour
         {
             CalcularTiempo();
         }
-
+        
         if (tiempo <= 0)
         {
             tiempotxt.text = 0 + ":" + 0;
