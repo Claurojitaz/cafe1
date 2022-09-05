@@ -21,8 +21,8 @@ public class WebRequest : MonoBehaviour
     private void Start()
     {
         //DataLoadStruct();
-         DataOnload();
-         StartCoroutine(DataOnload());
+        DataOnload();
+        StartCoroutine(DataOnload());
     }
     public void DataLoadStruct()
     {
@@ -53,7 +53,7 @@ public class WebRequest : MonoBehaviour
             Debug.Log("Received: " + req.downloadHandler.text);
         }
     }
-        IEnumerator DataOnload()
+    IEnumerator DataOnload()
     {
         UnityWebRequest req = UnityWebRequest.Get("https://m3exmbcq59.execute-api.us-east-2.amazonaws.com/prod/users");
         //Send the request then wait here until it returns

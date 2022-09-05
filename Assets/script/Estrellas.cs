@@ -7,12 +7,14 @@ public class Estrellas : MonoBehaviour
     // Start is called before the first frame update
     //void Start()
     public int Calificacion;
+    public calificacion calificacionGeneral;
     private void OnTriggerEnter(Collider other)
     {
-            if (other.tag == "Player")
+            if (other.gameObject.CompareTag ("Player"))
             {
-                Calificacion += other.GetComponent<calificacion>().Calificacion;
-            Debug.Log("uno");
+                Debug.Log("uno");
+                calificacionGeneral.Calificacion=Calificacion;
+                calificacionGeneral.CalificaStar();
             }
     }
 
