@@ -17,11 +17,5 @@ public class Estrellas : MonoBehaviour
                 calificacionGeneral.CalificaStar();
             }
     }
-
-
-
-    // Update is called once per frame
-    //void Update()
-          
-    
+        
 }
