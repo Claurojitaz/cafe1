@@ -9,36 +9,26 @@ public class WebRequest : MonoBehaviour
     public string userName;
     public int score;
     public int userID;
-    public int calificacion;
-
     public struct Data
     {
         public string userName;
         public string score;
+
         public string userID;
-        public string calificacion;
     }
     public Data dataSend;
-    public struct GetData
-    {
-        public string new_user;
-        public string assigned_users;
-    }
-    public GetData varGetData;
     //esta estructura es la que se convierte a json
     private void Start()
     {
-        DataLoadStruct();
-        //DataOnload();
+        //DataLoadStruct();
+        DataOnload();
         StartCoroutine(DataOnload());
     }
-    //se debe cargar cuando el juego termine
     public void DataLoadStruct()
     {
         dataSend.userName=userName;
         dataSend.score=score.ToString();
         dataSend.userID=userID.ToString();
-        dataSend.calificacion = calificacion.ToString();
         StartCoroutine(DataLoad());
     }
 
@@ -75,8 +65,6 @@ public class WebRequest : MonoBehaviour
         }
         else
         {
-            varGetData = JsonUtility.FromJson<GetData>(req.downloadHandler.text);
-            userName = varGetData.new_user;
             Debug.Log("Received: " + req.downloadHandler.text);
         }
     }
