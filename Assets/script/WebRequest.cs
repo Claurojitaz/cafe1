@@ -28,7 +28,7 @@ public class WebRequest : MonoBehaviour
     //esta estructura es la que se convierte a json
     private void Start()
     {
-        DataLoadStruct();
+        //DataLoadStruct();// se utiliza para enviar la informaci'on
         //DataOnload();
         StartCoroutine(DataOnload());
     }
