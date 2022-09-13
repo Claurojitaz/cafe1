@@ -8,7 +8,7 @@ public class GrainController : MonoBehaviour
 {
     public int point;
     public TMP_Text pointText;
-    private int suma;
+    public int suma;
     public GameObject arboles;
     public GameObject TextoTempo;
     public GameObject ejemplo;
@@ -25,21 +25,10 @@ public class GrainController : MonoBehaviour
     }
     /// OnTriggerEnter is called when the Collider other enters the trigger.
     /// <param name="other">The other Collider involved in this collision.</param>
-    private void OnTriggerEnter(Collider other)
+    public void Point(GameObject other)
     {
-        if (other.gameObject.CompareTag("Grain"))
-        {
-            other.transform.SetParent(transform);
-            other.GetComponent<ConfiGrain>().grano=this.GetComponent<GrainController>();
-            if (conteo)
-            {
-                point += other.GetComponent<Point>().point;
-                suma = point;
-                pointText.text = point.ToString();
-                envioPuntos.score = point;
-            }
-            
-        }
+        
+
         if (suma == 3)
         {
             arboles.SetActive(true);
@@ -51,15 +40,7 @@ public class GrainController : MonoBehaviour
             canvasTr.SetActive(true);
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Grain"))
-        {
-            other.transform.parent=null;
-            point -= other.GetComponent<Point>().point;
-            pointText.text = point.ToString();
-            envioPuntos.score = point;
-        }
-    }
+    
+
 
 }

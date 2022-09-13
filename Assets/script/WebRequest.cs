@@ -9,13 +9,14 @@ public class WebRequest : MonoBehaviour
     public string userName;
     public int score;
     public int userID;
+    public int calificacion;
 
     public struct Data
     {
         public string userName;
         public string score;
-
         public string userID;
+        public string calificacion;
     }
     public Data dataSend;
     public struct GetData
@@ -27,7 +28,7 @@ public class WebRequest : MonoBehaviour
     //esta estructura es la que se convierte a json
     private void Start()
     {
-        //DataLoadStruct();
+        DataLoadStruct();
         //DataOnload();
         StartCoroutine(DataOnload());
     }
@@ -37,6 +38,7 @@ public class WebRequest : MonoBehaviour
         dataSend.userName=userName;
         dataSend.score=score.ToString();
         dataSend.userID=userID.ToString();
+        dataSend.calificacion = calificacion.ToString();
         StartCoroutine(DataLoad());
     }
 
