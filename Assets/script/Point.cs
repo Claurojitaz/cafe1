@@ -10,28 +10,31 @@ public class Point : MonoBehaviour
         
     }
 
-    private void on (Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Bowl"))
+        if (other.gameObject.CompareTag("GrainCont"))
         {
             GrainController confiGrain = other.GetComponent<GrainController>();
-            confiGrain.transform.SetParent(transform);
+            transform.SetParent(confiGrain.transform);
             confiGrain.point += point;
-            confiGrain.suma = point;
-            confiGrain.pointText.text = point.ToString();
-            confiGrain.envioPuntos.score = point;
+            confiGrain.suma += point;
+            confiGrain.pointText.text = confiGrain.point.ToString();
+            confiGrain.envioPuntos.score = confiGrain.point;
+            confiGrain.Point();
             
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Bowl"))
+        if (other.gameObject.CompareTag("GrainCont"))
         {
             GrainController confiGrain = other.GetComponent<GrainController>();
-            confiGrain.transform.parent = null;
+            transform.parent = null;
             confiGrain.point -= other.GetComponent<Point>().point;
-            confiGrain.pointText.text = point.ToString();
-            confiGrain.envioPuntos.score = point;
+            confiGrain.suma -= point;
+            confiGrain.pointText.text = confiGrain.point.ToString();
+            confiGrain.envioPuntos.score =confiGrain.point;
+            confiGrain.Point();
         }
     }
 }

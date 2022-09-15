@@ -11,7 +11,6 @@ public class ConfiGrain :MonoBehaviour //UnityEngine.XR.Interaction.Toolkit.XRGr
         rb.isKinematic = false;
         Point poinst = GetComponent<Point>();
         poinst.enabled = true;
-        
     }
     
 

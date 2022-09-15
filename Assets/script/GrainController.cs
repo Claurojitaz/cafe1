@@ -23,12 +23,8 @@ public class GrainController : MonoBehaviour
     {
         envioPuntos = GameObject.Find("manager").GetComponent<WebRequest>();
     }
-    /// OnTriggerEnter is called when the Collider other enters the trigger.
-    /// <param name="other">The other Collider involved in this collision.</param>
-    public void Point(GameObject other)
+    public void Point()
     {
-        
-
         if (suma == 3)
         {
             arboles.SetActive(true);
