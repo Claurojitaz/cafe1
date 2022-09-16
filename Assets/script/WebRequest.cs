@@ -10,7 +10,7 @@ public class WebRequest : MonoBehaviour
     public int score;
     public int userID;
     public int calificacion;
-
+    [Serializable]
     public struct Data
     {
         public string userName;

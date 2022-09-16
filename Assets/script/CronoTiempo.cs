@@ -22,7 +22,8 @@ public class CronoTiempo : MonoBehaviour
     {
         int minutos = (int)tiempo / 60;
         int segundos = (int)tiempo % 60;
-        tiempotxt.text = minutos.ToString() + ":" + segundos.ToString().PadLeft(2, '0');
+        string v = minutos.ToString() + ":" + segundos.ToString().PadLeft(2, '0');
+        tiempotxt.text = v;
         envioInfo = GameObject.Find("manager").GetComponent<WebRequest>();
     }
 

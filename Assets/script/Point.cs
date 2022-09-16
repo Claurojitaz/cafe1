@@ -10,7 +10,7 @@ public class Point : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("GrainCont"))
         {
@@ -36,5 +36,5 @@ public class Point : MonoBehaviour
             confiGrain.envioPuntos.score =confiGrain.point;
             confiGrain.Point();
         }
-    }
+    }*/
 }
