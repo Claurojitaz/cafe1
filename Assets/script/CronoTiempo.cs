@@ -58,7 +58,7 @@ public class CronoTiempo : MonoBehaviour
             puntos1.SetActive(true);
             boton.SetActive(false);
         }
-        if (tiempo<=25)
+        if (tiempo<=20)
         {
             canvasTr.SetActive(false);
         }
