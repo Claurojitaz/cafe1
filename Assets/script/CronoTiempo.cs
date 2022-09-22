@@ -18,6 +18,9 @@ public class CronoTiempo : MonoBehaviour
     public bool initial;
     public WebRequest envioInfo;
     public bool envio;
+    public AudioSource ramas;
+    public AudioSource granos_caida;
+    public GameObject arboles;
     void Start()
     {
         int minutos = (int)tiempo / 60;
@@ -42,6 +45,8 @@ public class CronoTiempo : MonoBehaviour
             mensaje_final.SetActive(true);
             puntos1.SetActive(false);
             coca.SetActive(false);
+            arboles.SetActive(false);
+            granos_caida.Play();
             if (envio)
             {
                 envioInfo.DataLoadStruct();
@@ -56,14 +61,26 @@ public class CronoTiempo : MonoBehaviour
         else
         {
             mensaje_final.SetActive(false);
-            puntos1.SetActive(true);
+            puntos1.SetActive(false);
             boton.SetActive(false);
         }
-        if (tiempo<=20)
+        if (tiempo<=27)
         {
             canvasTr.SetActive(false);
+            ramas.Play();
         }
-
+        if (tiempo==15)
+        {
+            ramas.Play();
+        }
+        if (tiempo == 7)
+        {
+            ramas.Play();
+        }
+        if (tiempo == 3)
+        {
+            ramas.Play();
+        }
 
     }
 
