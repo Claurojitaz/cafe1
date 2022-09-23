@@ -7,9 +7,10 @@ public class ControlTouche : MonoBehaviour
 {
     public Image fillAmount;
     public float totaltime;
-
+    
     public Color32 newColor;
     float time = 0;
+    public WebRequest datos;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -26,6 +27,8 @@ public class ControlTouche : MonoBehaviour
             fillAmount.transform.GetChild(0).GetComponent<Image>().fillAmount = time / totaltime;
             if (time>=totaltime)
             {
+                                datos = GameObject.Find("manager").GetComponent<WebRequest>();
+                datos.DataLoadStruct();
                 SceneManager.LoadScene("SampleScene");
             }
         }

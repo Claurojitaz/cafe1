@@ -4,12 +4,15 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
 using System;
+using UnityEngine.SceneManagement;
+
 public class WebRequest : MonoBehaviour
 {
     public string userName;
     public int score;
     public int userID;
     public int calificacion;
+    public TMP_Text textInfo;
     [Serializable]
     public struct Data
     {
@@ -30,8 +33,30 @@ public class WebRequest : MonoBehaviour
     {
         //DataLoadStruct();// se utiliza para enviar la informaci'on
         //DataOnload();
+        //userID++;
+        textInfo.text = userName + userID;
+        if (PlayerPrefs.GetInt("UserID") == 0)
+        {
+            
+            userID=1;
+            Debug.Log("1111");
+        }
+        else
+        {
+            userID= PlayerPrefs.GetInt("UserID");
+            userID++;
+            Debug.Log("2222");
+        }
         StartCoroutine(DataOnload());
+        textInfo.text = userName + userID.ToString();
     }
+#if UNITY_EDITOR
+    [ContextMenu("ResetPlayerPrefs")]
+    public void Reset()
+    {
+        PlayerPrefs.SetInt("UserID", 0);
+    }
+#endif
     //se debe cargar cuando el juego termine
     public void DataLoadStruct()
     {
@@ -61,7 +86,16 @@ public class WebRequest : MonoBehaviour
         else
         {
             Debug.Log("Received: " + req.downloadHandler.text);
+            PlayerPrefs.SetInt("UserID", userID);
+            PlayerPrefs.Save();
+            StartCoroutine(SceneLoad());
         }
+    }
+    IEnumerator SceneLoad()
+    {
+
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("SampleScene");
     }
     IEnumerator DataOnload()
     {

@@ -8,7 +8,7 @@ public class Estrellas : MonoBehaviour
     //void Start()
     public int Calificacion;
     public calificacion calificacionGeneral;
-    public WebRequest datos;
+    
     private void OnTriggerEnter(Collider other)
     {
             if (other.gameObject.CompareTag ("Player"))
@@ -16,8 +16,6 @@ public class Estrellas : MonoBehaviour
                 Debug.Log("uno");
                 calificacionGeneral.Calificacion=Calificacion;
                 calificacionGeneral.CalificaStar();
-                datos = GameObject.Find("manager").GetComponent<WebRequest>();
-                datos.DataLoadStruct();
             }
     }
         
