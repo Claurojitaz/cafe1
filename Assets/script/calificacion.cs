@@ -22,29 +22,79 @@ public class calificacion : MonoBehaviour
                 switch (Calificacion)
         {
             case 1:
-                estrella1.fillAmount=1;
+                if (estrella1.fillAmount==0)
+                {
+                    estrella1.fillAmount = 1;
+                }
+                else
+                {
+                    estrella1.fillAmount = 0;
+                }
+
                 break;
             case 2:
-                estrella1.fillAmount=1;
-                estrella2.fillAmount=1;
+                if (estrella2.fillAmount == 0)
+                {
+                    estrella2.fillAmount = 1;
+                    estrella1.fillAmount = 1;
+                }
+                else
+                {
+                    estrella2.fillAmount = 0;
+                    estrella1.fillAmount = 1;
+                }
                 break;
             case 3:
-                estrella1.fillAmount=1;
-                estrella2.fillAmount=1;
-                estrella3.fillAmount=1;
+                if (estrella3.fillAmount == 0)
+                {
+                    estrella3.fillAmount = 1;
+                    estrella2.fillAmount = 1;
+                    estrella1.fillAmount = 1;
+                }
+                else
+                {
+                    
+                    estrella3.fillAmount=0;
+                    estrella2.fillAmount = 1;
+                    estrella1.fillAmount = 1;
+
+                }
                 break;
             case 4:
-                estrella1.fillAmount=1;
-                estrella2.fillAmount=1;
-                estrella3.fillAmount=1;
-                estrella4.fillAmount=1;
+                if (estrella4.fillAmount == 0)
+                {
+                    estrella4.fillAmount = 1;
+                    estrella3.fillAmount = 1;
+                    estrella2.fillAmount = 1;
+                    estrella1.fillAmount = 1;
+                }
+                else
+                {
+                    estrella4.fillAmount = 0;
+                    estrella3.fillAmount = 1;
+                    estrella2.fillAmount = 1;
+                    estrella1.fillAmount = 1;
+
+                }
                 break;
             case 5:
-                estrella1.fillAmount=1;
-                estrella2.fillAmount=1;
-                estrella3.fillAmount=1;
-                estrella4.fillAmount=1;
-                estrella5.fillAmount=1;
+                if (estrella5.fillAmount == 0)
+                {
+                    estrella5.fillAmount = 1;
+                    estrella4.fillAmount = 1;
+                    estrella3.fillAmount = 1;
+                    estrella2.fillAmount = 1;
+                    estrella1.fillAmount = 1;
+                }
+                else
+                {
+                    estrella5.fillAmount = 0;
+                    estrella4.fillAmount = 1;
+                    estrella3.fillAmount = 1;
+                    estrella2.fillAmount = 1;
+                    estrella1.fillAmount = 1;
+
+                }
                 break;
         }
     }
