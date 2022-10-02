@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ConfiGrain :MonoBehaviour //UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable 
 {
@@ -9,6 +10,7 @@ public class ConfiGrain :MonoBehaviour //UnityEngine.XR.Interaction.Toolkit.XRGr
     private void Start()
     {
         bocCollider = GetComponent<SphereCollider>();
+
     }
 
     public void Select()

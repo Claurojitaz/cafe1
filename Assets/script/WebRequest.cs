@@ -16,6 +16,7 @@ public class WebRequest : MonoBehaviour
     public int calificacion;
     public TMP_Text textInfo;
     public JsonCreate jsonCreate;
+    public calificacion estrellas;
     [Serializable]
     public struct Data
     {
@@ -92,12 +93,8 @@ public class WebRequest : MonoBehaviour
         else
         {
             Debug.Log("Received: " + req.downloadHandler.text);
-            //PlayerPrefs.SetInt("UserID", userID);
-            //PlayerPrefs.Save();
-
-
             jsonCreate.GetPath();
-            StartCoroutine(SceneLoad());
+            //StartCoroutine(SceneLoad());
         }
     }
     IEnumerator SceneLoad()
