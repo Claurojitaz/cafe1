@@ -1,40 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Point : MonoBehaviour
 {
     public int point;
     private void Start()
     {
-        
+        transform.GetChild(0).transform.localPosition = new Vector3(0.0028f, 0.0105f, -0.0636f);
+        GetComponent<XRGrabInteractable>().attachTransform = transform.GetChild(0).transform;
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("GrainCont"))
-        {
-            GrainController confiGrain = other.GetComponent<GrainController>();
-            transform.SetParent(confiGrain.transform);
-            confiGrain.point += point;
-            confiGrain.suma += point;
-            confiGrain.pointText.text = confiGrain.point.ToString();
-            confiGrain.envioPuntos.score = confiGrain.point;
-            confiGrain.Point();
-            
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("GrainCont"))
-        {
-            GrainController confiGrain = other.GetComponent<GrainController>();
-            transform.parent = null;
-            confiGrain.point -= other.GetComponent<Point>().point;
-            confiGrain.suma -= point;
-            confiGrain.pointText.text = confiGrain.point.ToString();
-            confiGrain.envioPuntos.score =confiGrain.point;
-            confiGrain.Point();
-        }
-    }*/
+
 }

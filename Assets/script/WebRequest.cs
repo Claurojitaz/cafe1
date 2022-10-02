@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
+using System.IO.MemoryMappedFiles;
 using System;
 using UnityEngine.SceneManagement;
+
 
 public class WebRequest : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class WebRequest : MonoBehaviour
     public int userID;
     public int calificacion;
     public TMP_Text textInfo;
+    public JsonCreate jsonCreate;
     [Serializable]
     public struct Data
     {
@@ -22,6 +25,7 @@ public class WebRequest : MonoBehaviour
         public string calificacion;
     }
     public Data dataSend;
+
     public struct GetData
     {
         public string new_user;
@@ -34,21 +38,22 @@ public class WebRequest : MonoBehaviour
         //DataLoadStruct();// se utiliza para enviar la informaci'on
         //DataOnload();
         //userID++;
-        textInfo.text = userName + userID;
-        if (PlayerPrefs.GetInt("UserID") == 0)
+        jsonCreate.LoadFromJson();
+        if (userID==0)
         {
+            userID = 1;
             
-            userID=1;
-            Debug.Log("1111");
         }
         else
         {
-            userID= PlayerPrefs.GetInt("UserID");
             userID++;
-            Debug.Log("2222");
         }
+        textInfo.text = userID.ToString();
+
+
+
         StartCoroutine(DataOnload());
-        textInfo.text = userName + userID.ToString();
+        //textInfo.text = userName + userID.ToString();
     }
 #if UNITY_EDITOR
     [ContextMenu("ResetPlayerPrefs")]
@@ -60,6 +65,7 @@ public class WebRequest : MonoBehaviour
     //se debe cargar cuando el juego termine
     public void DataLoadStruct()
     {
+
         dataSend.userName=userName;
         dataSend.score=score.ToString();
         dataSend.userID=userID.ToString();
@@ -86,8 +92,11 @@ public class WebRequest : MonoBehaviour
         else
         {
             Debug.Log("Received: " + req.downloadHandler.text);
-            PlayerPrefs.SetInt("UserID", userID);
-            PlayerPrefs.Save();
+            //PlayerPrefs.SetInt("UserID", userID);
+            //PlayerPrefs.Save();
+
+
+            jsonCreate.GetPath();
             StartCoroutine(SceneLoad());
         }
     }
@@ -95,7 +104,7 @@ public class WebRequest : MonoBehaviour
     {
 
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("SampleScene");
+        
     }
     IEnumerator DataOnload()
     {
@@ -114,5 +123,6 @@ public class WebRequest : MonoBehaviour
             Debug.Log("Received: " + req.downloadHandler.text);
         }
     }
+
 
 }

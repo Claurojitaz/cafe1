@@ -27,9 +27,9 @@ public class ControlTouche : MonoBehaviour
             fillAmount.transform.GetChild(0).GetComponent<Image>().fillAmount = time / totaltime;
             if (time>=totaltime)
             {
-                                datos = GameObject.Find("manager").GetComponent<WebRequest>();
+                datos = GameObject.Find("manager").GetComponent<WebRequest>();
                 datos.DataLoadStruct();
-                SceneManager.LoadScene("SampleScene");
+                
             }
         }
     }
